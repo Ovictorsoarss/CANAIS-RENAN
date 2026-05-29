@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sorteio 160 dos Sonhos</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@500,700,900&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>
@@ -25,222 +25,67 @@
 </noscript>
 <!-- End Meta Pixel Code -->
 <style>
+  /* ═══════ NEO-BRUTALISMO ═══════ */
+  :root {
+    --yellow: #ffe17c;
+    --charcoal: #171e19;
+    --sage: #b7c6c2;
+    --black: #000000;
+    --white: #ffffff;
+  }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #111;
+    background: var(--charcoal);
     display: flex;
     justify-content: center;
     min-height: 100vh;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 500;
     overflow-x: hidden;
   }
 
   .page-wrapper {
     width: 100%;
     max-width: 430px;
-    background: #fff;
+    background: var(--yellow);
     position: relative;
     overflow: hidden;
+    border-left: 2px solid var(--black);
+    border-right: 2px solid var(--black);
   }
 
-  /* ─── SECTION 1: BANNER VERMELHO ─── */
+  /* ─── SECTION 1: BANNER ─── */
   .banner {
-    background: #D10000;
+    background: var(--yellow);
+    background-image: radial-gradient(rgba(0,0,0,0.10) 2px, transparent 2px);
+    background-size: 32px 32px;
     position: relative;
     overflow: hidden;
-    padding: 0;
+    padding: 20px;
+    border-bottom: 2px solid var(--black);
   }
 
   .banner-img-wrap {
     position: relative;
     z-index: 4;
     line-height: 0;
+    border: 2px solid var(--black);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0px 0px var(--black);
     animation: motoIn 0.9s cubic-bezier(.22,1,.36,1) 0.2s both;
   }
 
   .banner-img-wrap img {
     width: 100%;
     display: block;
-    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));
-  }
-
-  /* Brilho diagonal */
-  .banner::before {
-    content: '';
-    position: absolute;
-    top: -80px; left: -60px;
-    width: 200%; height: 300px;
-    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.08) 50%, transparent 70%);
-    pointer-events: none;
-    animation: sheen 4s ease-in-out infinite;
-  }
-
-  /* Textura grunge overlay */
-  .banner::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-    opacity: 0.18;
-    pointer-events: none;
-  }
-
-  @keyframes sheen {
-    0%, 100% { transform: translateX(-30%); opacity: 0; }
-    40% { opacity: 1; }
-    60% { transform: translateX(20%); opacity: 0; }
-  }
-
-  /* Logo S */
-  .logo-s {
-    position: absolute;
-    top: 14px; right: 16px;
-    width: 38px; height: 38px;
-    background: #a00000;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    color: #fff;
-    border: 2px solid rgba(255,255,255,0.25);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    z-index: 10;
-    animation: dropIn 0.6s cubic-bezier(.22,1,.36,1) both;
-  }
-
-  /* Badge CONCORRA A */
-  .badge-concorra {
-    display: inline-block;
-    background: rgba(0,0,0,0.28);
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    padding: 5px 14px;
-    border-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.15);
-    margin-bottom: 10px;
-    animation: dropIn 0.5s cubic-bezier(.22,1,.36,1) 0.1s both;
-  }
-
-  /* Título principal */
-  .banner-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 72px;
-    line-height: 0.9;
-    color: #fff;
-    letter-spacing: 2px;
-    text-shadow:
-      3px 3px 0 rgba(0,0,0,0.3),
-      6px 6px 0 rgba(0,0,0,0.15);
-    position: relative;
-    z-index: 2;
-    animation: dropIn 0.6s cubic-bezier(.22,1,.36,1) 0.2s both;
-  }
-
-  .banner-title span {
-    display: block;
-  }
-
-  .title-line2 {
-    font-size: 88px !important;
-    color: #fff;
-    -webkit-text-stroke: 2px rgba(255,255,255,0.4);
-  }
-
-  /* Badge prêmios */
-  .badge-prizes {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    background: #1a5c2a;
-    border: 3px solid #c8a000;
-    border-radius: 8px;
-    padding: 8px 20px;
-    margin-top: 12px;
-    position: relative;
-    z-index: 3;
-    animation: dropIn 0.6s cubic-bezier(.22,1,.36,1) 0.35s both;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-
-  .badge-prizes .plus {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 11px;
-    font-weight: 900;
-    color: #ffd700;
-    letter-spacing: 2px;
-  }
-
-  .badge-prizes .value {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 32px;
-    color: #fff;
-    letter-spacing: 1px;
-    line-height: 1;
-  }
-
-  .badge-prizes .em-premios {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    color: #ffd700;
-    letter-spacing: 2px;
-  }
-
-  /* Moto */
-  .moto-wrap {
-    position: relative;
-    z-index: 4;
-    text-align: center;
-    margin-top: -10px;
-    animation: motoIn 0.9s cubic-bezier(.22,1,.36,1) 0.5s both;
-  }
-
-  .moto-wrap img {
-    width: 100%;
-    max-width: 340px;
-    filter: drop-shadow(-8px 12px 24px rgba(0,0,0,0.7));
   }
 
   @keyframes motoIn {
-    from { opacity: 0; transform: translateY(30px) scale(0.95); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  /* Badge preço */
-  .badge-price {
-    position: absolute;
-    bottom: 28px; right: 16px;
-    background: #8b0000;
-    border: 2px solid #ff4444;
-    border-radius: 10px;
-    padding: 9px 14px;
-    text-align: center;
-    z-index: 10;
-    animation: dropIn 0.6s cubic-bezier(.22,1,.36,1) 0.8s both;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-  }
-
-  .badge-price .apenas {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 2px;
-    display: block;
-  }
-
-  .badge-price .price-val {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px;
-    color: #fff;
-    line-height: 1;
-    display: block;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   /* Notas de dinheiro flutuantes */
@@ -250,8 +95,7 @@
     z-index: 3;
     pointer-events: none;
     animation: floatNote var(--dur, 3s) ease-in-out var(--delay, 0s) infinite alternate;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
-    opacity: 0.85;
+    opacity: 0.9;
   }
 
   @keyframes floatNote {
@@ -259,126 +103,104 @@
     to   { transform: translateY(-12px) rotate(var(--rot-to, 8deg)); }
   }
 
-  @keyframes dropIn {
-    from { opacity: 0; transform: translateY(-28px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* ─── SECTION 2: CTA BRANCO ─── */
+  /* ─── SECTION 2: CTA ─── */
   .cta-section {
-    background: #fff;
-    padding: 36px 24px 48px;
+    background: var(--yellow);
+    background-image: radial-gradient(rgba(0,0,0,0.10) 2px, transparent 2px);
+    background-size: 32px 32px;
+    padding: 40px 24px 48px;
     text-align: center;
     position: relative;
   }
 
-  .cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, #D10000, #ff4444, #D10000);
+  .cta-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 16px;
+    box-shadow: 8px 8px 0px 0px var(--black);
+    padding: 32px 20px 28px;
   }
 
   .cta-text {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 22px;
-    font-weight: 900;
-    color: #111;
-    line-height: 1.2;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.1;
     margin-bottom: 4px;
-    animation: fadeUp 0.7s ease 0.2s both;
     letter-spacing: -0.5px;
     text-transform: uppercase;
+    animation: fadeUp 0.7s ease 0.2s both;
   }
 
   .cta-text-green {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 58px;
-    color: #00A651;
-    line-height: 1;
-    letter-spacing: 2px;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: 62px;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 0.95;
+    letter-spacing: -2px;
+    text-transform: uppercase;
     animation: fadeUp 0.7s ease 0.35s both;
-    text-shadow: 2px 2px 0 rgba(0,166,81,0.2);
   }
 
   .cta-text-green2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    font-weight: 900;
-    color: #00A651;
-    margin-bottom: 28px;
-    animation: fadeUp 0.7s ease 0.5s both;
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 26px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    animation: fadeUp 0.7s ease 0.5s both;
   }
 
   .highlight-iphone {
     display: inline-block;
-    color: #fff;
-    background: #111;
-    padding: 1px 8px;
-    border-radius: 6px;
+    color: var(--white);
+    background: var(--charcoal);
+    padding: 2px 10px;
+    border: 2px solid var(--black);
+    border-radius: 8px;
     transform: rotate(-2deg);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    box-shadow: 3px 3px 0px 0px var(--black);
     animation: iphonePulse 1.8s ease-in-out infinite;
   }
 
   @keyframes iphonePulse {
     0%, 100% { transform: rotate(-2deg) scale(1); }
-    50% { transform: rotate(-2deg) scale(1.06); }
+    50% { transform: rotate(-2deg) scale(1.05); }
   }
 
+  /* Neo-Brutalist Push Button */
   .cta-btn {
     display: block;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
-    background: linear-gradient(180deg, #00D65A 0%, #00C853 60%, #00A844 100%);
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
+    background: var(--charcoal);
+    color: var(--white);
+    font-family: 'Cabinet Grotesk', sans-serif;
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 18px 0;
-    border: none;
-    border-radius: 50px;
+    letter-spacing: 0.5px;
+    padding: 18px 16px;
+    border: 2px solid var(--black);
+    border-radius: 12px;
     cursor: pointer;
-    box-shadow:
-      0 8px 24px rgba(0,200,83,0.45),
-      0 2px 0 rgba(255,255,255,0.15) inset;
-    animation: fadeUp 0.7s ease 0.65s both, pulse 2.4s ease-in-out 1.5s infinite;
+    box-shadow: 8px 8px 0px 0px var(--black);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
     position: relative;
     overflow: hidden;
-    transition: transform 0.15s, box-shadow 0.15s;
-    text-decoration: none;
+    animation: fadeUp 0.7s ease 0.65s both;
   }
 
-  .cta-btn::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -75%;
-    width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transform: skewX(-20deg);
-    animation: btnSheen 3s ease-in-out 2s infinite;
-  }
-
-  @keyframes btnSheen {
-    0% { left: -75%; }
-    60%, 100% { left: 130%; }
-  }
-
-  .cta-btn:hover {
-    transform: scale(1.02);
-    box-shadow:
-      0 12px 32px rgba(0,200,83,0.55),
-      0 2px 0 rgba(255,255,255,0.15) inset;
-  }
-
-  @keyframes pulse {
-    0%, 100% { box-shadow: 0 8px 24px rgba(0,200,83,0.45), 0 2px 0 rgba(255,255,255,0.15) inset; }
-    50% { box-shadow: 0 8px 36px rgba(0,200,83,0.7), 0 2px 0 rgba(255,255,255,0.15) inset; }
+  .cta-btn:hover,
+  .cta-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0px 0px var(--black);
   }
 
   @keyframes fadeUp {
@@ -388,33 +210,38 @@
 
   /* Decoração abaixo do botão */
   .cta-footer {
-    margin-top: 20px;
-    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    margin-top: 22px;
+    font-family: 'Satoshi', sans-serif;
     font-size: 11px;
-    color: #999;
+    font-weight: 700;
+    color: var(--black);
     letter-spacing: 1px;
+    background: var(--sage);
+    border: 2px solid var(--black);
+    border-radius: 999px;
+    padding: 6px 16px;
+    box-shadow: 4px 4px 0px 0px var(--black);
     animation: fadeUp 0.7s ease 0.85s both;
   }
 
-  /* Estrelinhas decorativas */
+  /* Estrelas */
   .stars {
     display: flex;
     justify-content: center;
     gap: 4px;
-    margin-top: 12px;
+    margin-top: 16px;
     animation: fadeUp 0.7s ease 0.95s both;
   }
 
   .stars span {
-    font-size: 14px;
-    color: #ffd700;
+    font-size: 18px;
+    color: #ffbc2e;
   }
 
   /* Responsive mínimo */
   @media (max-width: 360px) {
-    .banner-title { font-size: 60px; }
-    .title-line2 { font-size: 72px !important; }
-    .cta-text-green { font-size: 48px; }
+    .cta-text-green { font-size: 52px; }
   }
 </style>
 </head>
@@ -447,17 +274,19 @@
   <!-- ═══════════════════════════════════ -->
   <section class="cta-section">
 
-    <p class="cta-text">Entre no grupo e</p>
-    <p class="cta-text-green">CONCORRA</p>
-    <p class="cta-text-green2">A 1 <span class="highlight-iphone">IPHONE 13</span> TOTALMENTE GRATUITO 👇</p>
+    <div class="cta-card">
+      <p class="cta-text">Entre no grupo e</p>
+      <p class="cta-text-green">CONCORRA</p>
+      <p class="cta-text-green2">A 1 <span class="highlight-iphone">IPHONE 13</span> TOTALMENTE GRATUITO 👇</p>
 
-    <a href="https://chat.whatsapp.com/HXRc0BVfvfOEemBRPw6jCL" class="cta-btn">🏆 ENTRAR NO GRUPO VIP</a>
+      <a href="https://chat.whatsapp.com/HXRc0BVfvfOEemBRPw6jCL" class="cta-btn">🏆 ENTRAR NO GRUPO VIP</a>
 
-    <div class="stars">
-      <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+      <div class="stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+
+      <p class="cta-footer">PROMOÇÃO VÁLIDA POR TEMPO LIMITADO</p>
     </div>
-
-    <p class="cta-footer">PROMOÇÃO VÁLIDA POR TEMPO LIMITADO</p>
 
   </section>
 
