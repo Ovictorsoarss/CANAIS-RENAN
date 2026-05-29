@@ -127,6 +127,7 @@
   }
 
   .cta-text-green {
+    display: inline-block;
     font-family: 'Cabinet Grotesk', sans-serif;
     font-size: 62px;
     font-weight: 800;
@@ -134,7 +135,21 @@
     line-height: 0.95;
     letter-spacing: -2px;
     text-transform: uppercase;
+    position: relative;
+    padding: 4px 18px;
+    margin: 6px 0;
+    z-index: 0;
     animation: fadeUp 0.7s ease 0.35s both;
+  }
+
+  .cta-text-green::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #8BE03F;
+    transform: skewX(-12deg);
+    box-shadow: 6px 6px 0px 0px var(--black);
+    z-index: -1;
   }
 
   .cta-text-green2 {
